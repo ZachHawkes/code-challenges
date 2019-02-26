@@ -7,14 +7,14 @@ function minimumSwaps(arr){
     let swapCounter = 0; 
     arr.forEach((value, index)=>{
         if(value != index + 1 && index != arr.length - 1){
-            arr.forEach((val2, index2)=>{
-                if(val2 == index + 1){
+            for(let i = index; i < arr.length; i++){
+                if(arr[i] == index + 1){
                     const temp = arr[index];
-                    arr[index] = arr[index2];
-                    arr[index2] = temp;
+                    arr[index] = arr[i];
+                    arr[i] = temp;
                     swapCounter++;
                 }
-            })
+            }
         }
     })
     return swapCounter;
